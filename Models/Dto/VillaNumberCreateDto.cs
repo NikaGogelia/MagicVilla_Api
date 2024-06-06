@@ -5,6 +5,6 @@ namespace MagicVilla_Api.Models.Dto;
 public class VillaNumberCreateDto
 {
 	[Required]
-	public int VillaNot { get; set; }
+	public int VillaNo { get; set; }
 	public string SpecialDetails { get; set; }
 }
