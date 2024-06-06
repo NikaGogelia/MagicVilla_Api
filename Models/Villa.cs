@@ -5,8 +5,7 @@ namespace MagicVilla_Api.Models;
 
 public class Villa
 {
-	[Key]
-	[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+	[Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 	public int Id { get; set; }
 	public string Name { get; set; }
 	public string Details { get; set; }

@@ -1,13 +1,19 @@
+using MagicVilla_Api;
 using MagicVilla_Api.Data;
 using MagicVilla_Api.Logging;
+using MagicVilla_Api.Repository;
+using MagicVilla_Api.Repository.IRepository;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllers(option => {
+builder.Services.AddControllers(option =>
+{
 	//option.ReturnHttpNotAcceptable = true;
 }).AddNewtonsoftJson();
+
+builder.Services.AddAutoMapper(typeof(MappingConfig));
 
 builder.Services.AddDbContext<ApplicationDbContext>(option =>
 {
@@ -18,6 +24,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<ILogging, Logging>();
+builder.Services.AddScoped<IVillaRepository, VillaRepository>();
 
 var app = builder.Build();
 
